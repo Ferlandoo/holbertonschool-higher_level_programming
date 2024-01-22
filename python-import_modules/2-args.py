@@ -5,7 +5,7 @@ if __name__ == "__main__":
     if max_length == 0:
         print("{} arguments.".format(max_length))
     elif max_length == 1:
-        print("{} argument.".format(max_length))
+        print("{} argument:".format(max_length))
         print("{}: {}".format(max_length, sys.argv[1]))
     else:
         print("{} arguments:".format(max_length))
