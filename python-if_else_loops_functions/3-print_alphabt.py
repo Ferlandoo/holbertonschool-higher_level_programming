@@ -1,3 +1,4 @@
 #!/usr/bin/python3
 for a in range(97, 123):
-    print("{}".format(chr(a)).replace("q", "e"), end="")
+    if a not in [101, 113]:
+        print("{}".format(chr(a)), end="")
