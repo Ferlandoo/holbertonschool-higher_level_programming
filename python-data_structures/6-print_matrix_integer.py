@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-    for idx in matrix:
-        for elements in idx:
-            print("{}".format(elements), end=" ")
+    for row in matrix:
+        for element in row:
+            print("{}".format(element), end=" ")
         print()
