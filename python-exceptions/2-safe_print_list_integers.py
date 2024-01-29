@@ -6,10 +6,10 @@ def safe_print_list_integers(my_list=[], x=0):
             print("{:d}".format(my_list[idx]), end="")
             elements += 1
         except IndexError:
-            print("Index Error")
+            print("")
         except ValueError:
-            print("Value Error")
+            print("")
         except TypeError:
-            print("Type Error")
+            print("")
     print("")
     return elements
