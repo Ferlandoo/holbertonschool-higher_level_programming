@@ -34,9 +34,12 @@ class Square:
         """Initializes the data."""
         self.__position = value
         for idx in value:
-            if len(value) != 2 and value[idx] < 0:
-                print("position must be a tuple of 2 positive integers")
+            if type(idx) is not int:
+                print("position must be a tuple of 2 positive integers", end="")
                 raise TypeError
+            if idx < 0:
+                print("position must be a tuple of 2 positive integers", end="")
+                raise ValueError
 
     def area(self):
         """returns the current square area"""
