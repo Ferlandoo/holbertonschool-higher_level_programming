@@ -29,7 +29,7 @@ class Square:
     def position(self):
         """Get position of square"""
         return self.__position
-    
+
     @position.setter
     def position(self, value):
         """Initializes the data."""
