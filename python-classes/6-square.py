@@ -13,11 +13,6 @@ class Square:
         """Get size of square"""
         return self.__size
 
-    @property
-    def position(self):
-        """Get position of square"""
-        return self.__position
-
     @size.setter
     def size(self, value):
         """Initializes the data."""
@@ -28,11 +23,16 @@ class Square:
         if value < 0:
             print("size must be >= 0", end="")
             raise ValueError
+        self.__size = value
 
+    @property
+    def position(self):
+        """Get position of square"""
+        return self.__position
+    
     @position.setter
     def position(self, value):
         """Initializes the data."""
-        self.__position = value
         for idx in value:
             if type(idx) is not int:
                 print("position must be a tuple of 2 positive integers", end="")
@@ -40,6 +40,7 @@ class Square:
             if idx < 0:
                 print("position must be a tuple of 2 positive integers", end="")
                 raise ValueError
+        self.__position = value
 
     def area(self):
         """returns the current square area"""
