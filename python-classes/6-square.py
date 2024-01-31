@@ -45,10 +45,9 @@ class Square:
         """print # for the size of square"""
         if self.__size == 0:
             print("")
-            return
-        for i in range(self.__size):
-            for k in range(self.__position[0]):
+        for _ in range(self.__size):
+            for _ in range(self.__position[0]):
                 print(" ", end="")
-            for j in range(self.__size):
+            for _ in range(self.__size):
                 print("#", end="")
             print()
