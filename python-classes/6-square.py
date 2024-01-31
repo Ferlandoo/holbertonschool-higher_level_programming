@@ -5,8 +5,8 @@
 class Square:
     "Represent a square."""
     def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
@@ -45,9 +45,9 @@ class Square:
         """print # for the size of square"""
         if self.__size == 0:
             print("")
-        for _ in range(self.__size):
-            for _ in range(self.__position[0]):
+        for i in range(self.__size):
+            for k in range(self.__position[0]):
                 print(" ", end="")
-            for _ in range(self.__size):
+            for j in range(self.__size):
                 print("#", end="")
             print()
