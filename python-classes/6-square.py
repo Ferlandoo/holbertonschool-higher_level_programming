@@ -34,7 +34,7 @@ class Square:
         """Initializes the data."""
         self.__position = value
         for idx in value:
-            if value[idx] < 0:
+            if len(value) != 2 and value[idx] < 0:
                 print("position must be a tuple of 2 positive integers")
                 raise TypeError
 
