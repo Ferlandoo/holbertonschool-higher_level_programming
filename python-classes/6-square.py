@@ -5,7 +5,7 @@
 class Square:
     "Represent a square."""
     def __init__(self, size=0, position=(0, 0)):
-        self.size = size
+        self.__size = size
         self.position = position
 
     @property
@@ -16,7 +16,6 @@ class Square:
     @size.setter
     def size(self, value):
         """Initializes the data."""
-        self.__size = value
         if type(value) is not int:
             print("size must be an integer", end="")
             raise TypeError
