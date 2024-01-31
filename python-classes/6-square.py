@@ -33,13 +33,13 @@ class Square:
     @position.setter
     def position(self, value):
         """Initializes the data."""
+        if type(value) is not tuple:
+            print("position must be a tuple of 2 positive integers", end="")
+            raise TypeError
         for idx in value:
-            if type(idx) is not int:
-                print("position must be a tuple of 2 positive integers", end="")
-                raise TypeError
             if idx < 0:
                 print("position must be a tuple of 2 positive integers", end="")
-                raise ValueError
+                raise TypeError
         self.__position = value
 
     def area(self):
