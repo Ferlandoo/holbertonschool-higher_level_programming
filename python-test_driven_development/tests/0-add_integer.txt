@@ -19,3 +19,9 @@ Example:
 
 >>> add_integer(10)
 108
+
+>>> add_integer(None)
+a must be an integer
+
+>>> add_integer(4, "School")
+b must be an integer
