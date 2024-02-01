@@ -1,4 +1,6 @@
-def add_integer(a, b=98):
+from typing import Union
+
+def add_integer(a: Union[int, float], b: Union[int, float] = 98) -> int:
     """Return the integer addition of a and b.
 
     Float arguments are typecasted to ints before addition is performed.
