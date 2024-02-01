@@ -1,59 +1,124 @@
-"""
-Add two integers together.
 
-This function takes two integers as input and returns their sum.
+===========================
+How to Use 0-add_integer.py
+===========================
 
-First import ``add_integer'' from the ``0-add_integer`` file:
+This module defines an integer addition function ``add_integer(a, b=98)``.
+
+Usage
+=====
+
+``add_integer(...)``` returns the addition of its two arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
+
+::
+
     >>> add_integer = __import__('0-add_integer').add_integer
-
-Parameters:
-    a (int): The first integer to be added.
-    b (int, optional): The second integer to be added. Defaults to 98.
-
-Returns:
-    int: The sum of the two input integers.
-
-Raises:
-    ValueError: If either `a` or `b` is not an integer.
-
-Examples:
-    test - a and b are int
     >>> add_integer(2, 3)
     5
 
-    test - a is minus int and b is int
-    >>> add_integer(-1, 1)
-    0
+::
 
-    test - only a
-    >>> add_integer(0)
-    98
+    >>> add_integer(2, -3)
+    -1
 
-    test - a is float
-    >>> add_integer(1.5, 200)
-    201
+The function also works with floating-point values.
 
-    test - b is float
-    >>> add_integer(1, 200.6)
-    201
+::
 
-Error case:
-    test - no args
-    >>> add_integer()
+    >>> add_integer(2.0, 3.0)
+    5
+
+Note that floats are casted to ints before addition is performed.
+
+::
+
+    >>> add_integer(2.9, 0.2)
+    2
+
+::
+
+    >>> add_integer(-2.9, -0.2)
+    -2
+
+Floating and non-floating point values can be combined.
+
+::
+
+    >>> add_integer(2.3, -3)
+    -1
+
+The second argument is optional - by default, it is 98.
+
+::
+
+    >>> add_integer(2)
+    100
+
+Non-Numbers
+===========
+
+``add_integer()`` expects that both arguments are either integers or floats.
+If either argument is a non-integer and non-float, a TypeError is raised:
+
+::
+
+    >>> add_integer("hello", 3)
     Traceback (most recent call last):
-    ...
-    TypeError: add_integer() missing 1 required positional argument: 'a'
+    TypeError: a must be an integer
 
-    test - a is not int or float
-    >>> add_integer("mochi", 3)
+::
+
+    >>> add_integer(2, "hello")
     Traceback (most recent call last):
-    ...
-    ValueError: a must be an integer
+    TypeError: b must be an integer
 
-    test - b is not int or float
-    >>> add_integer(2, None)
+::
+
+    >>> add_integer(None)
     Traceback (most recent call last):
-    ...
-    ValueError: b must be an integer
+    TypeError: a must be an integer
 
-"""
+::
+
+    >>> add_integer(2.3, None)
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+If both arguments are non-integers and non-floats, a TypeError message is only
+printed for the first argument.
+
+::
+
+    >>> add_integer("hello", "there")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+The function will fail if infinity is provided.
+
+::
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+     
+
+::
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+And again with NaN numbers.
+
+::
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+::
+
+    >>> add_integer(2, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
