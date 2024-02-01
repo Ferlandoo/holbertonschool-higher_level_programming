@@ -1,45 +1,59 @@
-The ``0-add_integer`` module
-============================
+"""
+Add two integers together.
 
-Using ``add_integer``
----------------------
+This function takes two integers as input and returns their sum.
 
-	>>> add_integer = __import__("0-add_integer").add_integer
+First import ``add_integer'' from the ``0-add_integer`` file:
+    >>> add_integer = __import__('0-add_integer').add_integer
 
-	>>> 0 < len(__import__("0-add_integer").__doc__)
-	True
+Parameters:
+    a (int): The first integer to be added.
+    b (int, optional): The second integer to be added. Defaults to 98.
 
-	>>> 0 < len(__import__("0-add_integer").add_integer.__doc__)
-	True
+Returns:
+    int: The sum of the two input integers.
 
-	>>> add_integer(0)
-	98
+Raises:
+    ValueError: If either `a` or `b` is not an integer.
 
-	>>> add_integer(0.0)
-	98
+Examples:
+    test - a and b are int
+    >>> add_integer(2, 3)
+    5
 
-	>>> add_integer("0")
-     	Traceback (most recent call last):
-		...
-	TypeError: a must be an integer
+    test - a is minus int and b is int
+    >>> add_integer(-1, 1)
+    0
 
-	>>> add_integer(13, 29)
-	42
+    test - only a
+    >>> add_integer(0)
+    98
 
-	>>> add_integer(13.0, 29.0)
-	42
+    test - a is float
+    >>> add_integer(1.5, 200)
+    201
 
-	>>> add_integer(2, "0")
-     	Traceback (most recent call last):
-		...
-	TypeError: b must be an integer
+    test - b is float
+    >>> add_integer(1, 200.6)
+    201
 
-	>>> add_integer(2, float('nan'))
-	Traceback (most recent call last):
-		...
-	ValueError: cannot convert float NaN to integer
+Error case:
+    test - no args
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
 
-	>>> add_integer(2, float('inf'))
-	Traceback (most recent call last):
-		...
-	OverflowError: cannot convert float infinity to integer
+    test - a is not int or float
+    >>> add_integer("mochi", 3)
+    Traceback (most recent call last):
+    ...
+    ValueError: a must be an integer
+
+    test - b is not int or float
+    >>> add_integer(2, None)
+    Traceback (most recent call last):
+    ...
+    ValueError: b must be an integer
+
+"""
