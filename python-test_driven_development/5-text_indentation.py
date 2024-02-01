@@ -2,8 +2,10 @@
 def text_indentation(text):
     if type(text) is not str:
         raise TypeError("text must be a string")
+    result = ""
     for i in range(len(text)):
         if text[i] == '.' or text[i] == '?' or text[i] == ':':
-            print(text[i] + '\n')
+            result += text[i] + '\n\n'
         else:
-            print(text[i], end='')
+            result += text[i]
+    print(result, end='')
