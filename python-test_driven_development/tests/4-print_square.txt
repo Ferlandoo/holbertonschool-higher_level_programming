@@ -1,3 +1,4 @@
+"""
 Prints a square of the specified size using '#' characters.
 
 First import ``print_square'' from the ``4-print_square`` file:
@@ -55,3 +56,5 @@ Error case:
     Traceback (most recent call last):
     ...
     TypeError: size must be an integer
+
+"""
