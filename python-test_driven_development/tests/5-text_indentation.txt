@@ -1,3 +1,4 @@
+"""
 The ``5-text_indentation`` module
 =================================
 
@@ -40,3 +41,4 @@ Case #6: test the characters to insert '\n'
 <BLANKLINE>
 :
 <BLANKLINE>
+"""
