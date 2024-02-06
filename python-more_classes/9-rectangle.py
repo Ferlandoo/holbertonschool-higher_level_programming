@@ -46,15 +46,12 @@ class Rectangle:
             return 2*(self.width + self.height)
 
     def __str__(self):
-        str_1 = ""
         if self.width == 0 or self.height == 0:
-            return str_1
+            return ""
         else:
-            for idx in range(self.height):
-                str_1 += str(self.print_symbol) * self.width + "\n"
-            str_1 += str(self.print_symbol) * self.width
-            return str_1
-
+            lines = [str(self.print_symbol) * self.width
+                     for _ in range(self.height)]
+            return "\n".join(lines)
 
     def __repr__(self):
         return f'Rectangle({self.width}, {self.height})'
@@ -72,7 +69,6 @@ class Rectangle:
         if rect_1.area() < rect_2.area():
             return rect_2
         return rect_1
-
 
     @classmethod
     def square(cls, size=0):
