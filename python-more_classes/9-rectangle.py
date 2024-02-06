@@ -50,10 +50,11 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return str_1
         else:
-            for idx in range(self.height - 1):
+            for idx in range(self.height):
                 str_1 += str(self.print_symbol) * self.width + "\n"
             str_1 += str(self.print_symbol) * self.width
             return str_1
+
 
     def __repr__(self):
         return f'Rectangle({self.width}, {self.height})'
@@ -74,8 +75,4 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
         return cls(size, size)
