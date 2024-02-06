@@ -46,16 +46,12 @@ class Rectangle:
             return 2*(self.width + self.height)
 
     def __str__(self):
-        new_str = ""
         if self.width == 0 or self.height == 0:
-            return new_str
+            return ""
         else:
-            for i in range(self.height):
-                for j in range(self.width):
-                    new_str += str(self.print_symbol)
-                if i < self.height - 1:
-                    new_str += "\n"
-        return new_str
+            lines = [str(self.print_symbol) * self.width
+                     for _ in range(self.height)]
+            return "\n".join(lines)
 
     def __repr__(self):
         return f'Rectangle({self.width}, {self.height})'
@@ -64,11 +60,11 @@ class Rectangle:
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        if not isinstance(rect_1, Rectangle):
+    @classmethod
+    def bigger_or_equal(cls, rect_1, rect_2):
+        if not isinstance(rect_1, cls):
             raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
+        if not isinstance(rect_2, cls):
             raise TypeError("rect_2 must be an instance of Rectangle")
         if rect_1.area() < rect_2.area():
             return rect_2
