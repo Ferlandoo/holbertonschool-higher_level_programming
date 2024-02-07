@@ -1,24 +1,47 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+"""
+ integer_validator method test in BaseGeometry class. 
 
->>> bg = BaseGeometry()
+First import ``BaseGeometry`` from the ``7-base_geometry`` file:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
->>> bg.integer_validator("my_int", 12)
->>> bg.integer_validator("width", 89)
+Parameters:
+    integer_validator (name: str, value: int): assume that name is always str.
 
->>> try:
-...    bg.integer_validator("name", "John")
-... except Exception as e:
-...    print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] name must be an integer
+Returns:
+    None
 
->>> try:
-...    bg.integer_validator("age", 0)
-... except Exception as e:
-...    print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
+Examples:
+    test - proper args
+    >>> instance = BaseGeometry()
+    >>> instance.integer_validator("name", 900)
 
->>> try:
-...    bg.integer_validator("distance", -4)
-... except Exception as e:
-...    print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] distance must be greater than 0
+Errro_case:
+    test - value is not int
+    >>> instance = BaseGeometry()
+    >>> instance.integer_validator("name", "900")
+    Traceback (most recent call last):
+    ...
+    TypeError: name must be an integer
+
+    test - value is less than or equal to 0
+    >>> instance = BaseGeometry()
+    >>> instance.integer_validator("name", -190)
+    Traceback (most recent call last):
+    ...
+    ValueError: name must be greater than 0
+
+    test - no arg
+    >>> instance = BaseGeometry()
+    >>> instance.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    test - one arg
+    >>> instance = BaseGeometry()
+    >>> instance.integer_validator("name")
+    Traceback (most recent call last):
+    ...
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+"""

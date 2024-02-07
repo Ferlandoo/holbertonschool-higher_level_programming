@@ -1,17 +1,41 @@
->>> MyList = __import__('1-my_list').MyList
+"""
+MyList class inherits from list class. 
 
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
+First import ``My_list`` from the ``1-my_list`` file:
+    >>> MyList = __import__('1-my_list').MyList
 
->>> print(my_list)
-[1, 4, 2, 3, 5]
+Examples:
+    test - inherit original method append
+    >>> list = MyList()
+    >>> list.append(20)
+    >>> print(list)
+    [20]
 
->>> my_list.print_sorted()
-[1, 2, 3, 4, 5]
+    test - append multiple times
+    >>> list = MyList()
+    >>> list.append(20)
+    >>> list.append(10)
+    >>> list.append(90)
+    >>> print(list)
+    [20, 10, 90]
 
->>> print(my_list)
-[1, 4, 2, 3, 5]
+    test - print_sorted works as expected
+    >>> list = MyList()
+    >>> list.append(20)
+    >>> list.append(10)
+    >>> list.append(90)
+    >>> list.print_sorted()
+    [10, 20, 90]
+
+    test - print_sorted doesn't affect original list
+    >>> list = MyList()
+    >>> list.append(20)
+    >>> list.append(10)
+    >>> list.append(90)
+    >>> list.print_sorted()
+    [10, 20, 90]
+    >>> print(list)
+    [20, 10, 90]
+    
+
+"""
