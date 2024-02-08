@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Pascal triangle"""
+
+
 def pascal_triangle(n):
     my_list = []
     all_lists = []
