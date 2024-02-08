@@ -8,7 +8,9 @@ LoadFile = __import__('6-load_from_json_file')
 
 """Load the JSON file and save the arguments to it"""
 filename = "add_item.json"
-my_list = []
-my_list = LoadFile.load_from_json_file(filename)
+try:
+    my_list = LoadFile.load_from_json_file(filename)
+except:
+    my_list = []
 my_list.extend(sys.argv[1:])
 SaveFile.save_to_json_file(my_list, filename)
