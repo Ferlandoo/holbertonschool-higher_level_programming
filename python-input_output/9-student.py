@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module for class_to_json"""
+
+
 class Student:
     """Student class"""
     def __init__(self, first_name, last_name, age):
