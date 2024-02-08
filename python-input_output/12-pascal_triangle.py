@@ -3,6 +3,7 @@
 
 
 def pascal_triangle(n):
+    """Pascal triangle function"""
     my_list = []
     all_lists = []
     if n <= 0:
