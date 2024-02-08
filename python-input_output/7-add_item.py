@@ -10,7 +10,8 @@ LoadFile = __import__('6-load_from_json_file')
 filename = "add_item.json"
 try:
     my_list = LoadFile.load_from_json_file(filename)
-except ValueError:
+except:
     my_list = []
-my_list.extend(sys.argv[1:])
+for idx in range(1, len(sys.argv)):
+    my_list.append(sys.argv[idx])
 SaveFile.save_to_json_file(my_list, filename)
