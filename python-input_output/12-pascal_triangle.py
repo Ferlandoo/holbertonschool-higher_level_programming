@@ -14,7 +14,8 @@ def pascal_triangle(n):
             all_lists.append(new_list)
 
         all_lists[0] = [1]
-        all_lists[1] = [1, 1]
+        if n > 1:
+            all_lists[1] = [1, 1]
 
         for idx_all in range(2, n):
             all_lists[idx_all].append(1)
