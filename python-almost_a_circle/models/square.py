@@ -11,4 +11,5 @@ class Square(Rectangle):
         self.size = size
 
     def __str__(self):
+        '''Update str'''
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
