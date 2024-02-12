@@ -8,4 +8,4 @@ class Base:
     def __init__(self, id=None):
         if id is not None:
             self.no_id = id
-        Base.__nb_objects += 1        
+        Base.__nb_objects += 1
