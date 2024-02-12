@@ -2,6 +2,7 @@
 '''Base class'''
 import json
 
+
 class Base:
     '''Base class'''
     __nb_objects = 0
@@ -17,5 +18,4 @@ class Base:
         '''Return the JSON string representation of list_dictionaries'''
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
-        else:
-            return json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
