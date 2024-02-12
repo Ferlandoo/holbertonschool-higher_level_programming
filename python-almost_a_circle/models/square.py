@@ -10,6 +10,7 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def size(self):
+        '''Size of this square'''
         return self.width
 
     @size.setter
