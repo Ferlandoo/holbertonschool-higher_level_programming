@@ -84,4 +84,3 @@ class Rectangle(Base):
             for i, arg in enumerate(args):
                 if i < len(attributes):
                     setattr(self, attributes[i], arg)
-        
