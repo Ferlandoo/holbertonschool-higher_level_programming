@@ -4,11 +4,10 @@ from .rectangle import Rectangle
 
 
 class Square(Rectangle):
-    '''Class Square'''
     def __init__(self, size, x=0, y=0, id=None):
-        '''Initialize a new Square.'''
+        '''Constructor'''
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        '''Update str'''
+        '''String representation'''
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
