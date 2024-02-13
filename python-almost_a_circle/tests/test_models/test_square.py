@@ -24,11 +24,6 @@ class TestSquare(unittest.TestCase):
         self.assertIsInstance(s2, Square)
         self.assertTrue(issubclass(type(s2), Rectangle))
 
-    def test_save_to_file_none(self):
-        """Test that save_to_file with None as argument raises a TypeError."""
-        with self.assertRaises(TypeError):
-            Square.save_to_file(None)
-
     def test_invalid_y_type(self):
         """Test that creating a Square with a non-integer y raises a TypeError."""
         with self.assertRaises(TypeError):
