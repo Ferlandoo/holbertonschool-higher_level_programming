@@ -96,7 +96,7 @@ class TestSquare(unittest.TestCase):
     def test_save_to_file(self):
         """Check save_to_file method"""
         Base._Base__nb_objects = 0
-        Square.save_to_file(None)
+        Square.save_to_file([])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]", "Failed to save empty list")
         s1 = Square(5)
