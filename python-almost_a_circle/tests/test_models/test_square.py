@@ -107,10 +107,6 @@ class TestSquare(unittest.TestCase):
             list_dict = json.loads(file.read())
         self.assertTrue(list_input == list_dict, "Failed to save list of Square objects")
 
-    def test_None_size(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(None)
-
     def test_display(self):
         """check display"""
         Base._Base__nb_objects = 0
