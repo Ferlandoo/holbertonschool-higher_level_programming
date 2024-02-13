@@ -24,6 +24,13 @@ class TestSquare(unittest.TestCase):
         self.assertIsInstance(s2, Square)
         self.assertTrue(issubclass(type(s2), Rectangle))
 
+    def test_invalid_size(self):
+        """check error when size is not an integer"""
+        Base._Base__nb_objects = 0
+        with self.assertRaisesRegex(TypeError, "size must be an integer"):
+            Square(1, "2")
+
+
     def test_numObj(self):
         """check number of instances created"""
         Base._Base__nb_objects = 0
