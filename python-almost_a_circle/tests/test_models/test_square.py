@@ -99,7 +99,6 @@ class TestSquare(unittest.TestCase):
         Square.save_to_file([])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]", "Failed to save empty list")
-        Square.save_to_file(None)
         s1 = Square(5)
         s2 = Square(2, 2)
         Square.save_to_file([s1, s2])
@@ -107,6 +106,10 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", "r") as file:
             list_dict = json.loads(file.read())
         self.assertTrue(list_input == list_dict, "Failed to save list of Square objects")
+
+    def test_None_size(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square(None)
 
     def test_display(self):
         """check display"""
