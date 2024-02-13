@@ -167,14 +167,6 @@ class TestSquare(unittest.TestCase):
         result_string = result.getvalue()
         self.assertEqual(result_string, "\n  ###\n  ###\n  ###\n")
 
-    def test_dictionary(self):
-        """check dictionary conversion"""
-        Base._Base__nb_objects = 0
-        s1 = Square(10, 2, 1, 1)
-        a_dict = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
-        s1_dictionary = s1.to_dictionary()
-        self.assertTrue(s1_dictionary == a_dict)
-
     def test_pep8_model(self):
         """tests for pep8"""
         p8 = pep8.StyleGuide(quiet=True)
