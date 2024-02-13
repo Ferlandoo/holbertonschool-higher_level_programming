@@ -66,6 +66,10 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", "r") as file:
             list_dict = json.loads(file.read())
         self.assertTrue(list_dict == [])
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            list_dict = json.loads(file.read())
+        self.assertTrue(list_dict == [])
 
     def test_errors(self):
         """check errors"""
