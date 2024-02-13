@@ -197,6 +197,36 @@ class TestSquare(unittest.TestCase):
         s1.update(size=7, id=89, y=1)
         string = s1.__str__()
         self.assertEqual(string, "[Square] (89) 12/1 - 7")
+    
+    def test_update_kwargs(self, *args, **kwargs):
+        if args and len(args) != 0:
+            a = 0
+            for arg in args:
+                if a == 0:
+                    if arg is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif a == 1:
+                    self.size = arg
+                elif a == 2:
+                    self.x = arg
+                elif a == 3:
+                    self.y = arg
+                a += 1
+        else:
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = v
+                elif k == "size":
+                    self.size = v
+                elif k == "x":
+                    self.x = v
+                elif k == "y":
+                    self.y = v
 
     def test_dictionary(self):
         """check dictionary conversion"""
