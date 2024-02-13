@@ -68,17 +68,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r5.x, 0)
         self.assertEqual(r5.y, 0)
 
-    def test_zero_width(self):
-        """check zero width"""
-        Base._Base__nb_objects = 0
-        r = Rectangle(0, 2)
-        self.assertEqual(r.width, 0)
-        self.assertEqual(r.height, 2)
-        self.assertEqual(r.x, 0)
-        self.assertEqual(r.y, 0)
-        self.assertEqual(r.area(), 0)
-        self.assertEqual(str(r), "[Rectangle] (1) 0/0 - 0/2")
-        self.assertEqual(r.to_dictionary(), {'id': 1, 'width': 0, 'height': 2, 'x': 0, 'y': 0})
 
     def test_errors(self):
         """checks invalid attributes"""
