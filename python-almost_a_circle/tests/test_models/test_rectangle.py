@@ -22,6 +22,14 @@ class TestRectangle(unittest.TestCase):
         r2 = Rectangle(2, 10)
         self.assertIsInstance(r2, Rectangle)
 
+    def test_zero_width(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Rectangle(0, 2)
+
+    def test_zero_height(self):
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            Rectangle(1, 0)
+
     def test_invalid_width(self):
         """check invalid width"""
         Base._Base__nb_objects = 0
