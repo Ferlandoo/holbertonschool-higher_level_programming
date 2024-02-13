@@ -24,6 +24,11 @@ class TestSquare(unittest.TestCase):
         self.assertIsInstance(s2, Square)
         self.assertTrue(issubclass(type(s2), Rectangle))
 
+    def test_invalid_y_type(self):
+        """Test that creating a Square with a non-integer y raises a TypeError."""
+        with self.assertRaises(TypeError):
+            s = Square(1, 2, "3")
+
     def test_numObj(self):
         """check number of instances created"""
         Base._Base__nb_objects = 0
