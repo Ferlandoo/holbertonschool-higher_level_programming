@@ -29,6 +29,11 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s = Square(1, 2, "3")
 
+    def test_invalid_size_type(self):
+        """Test that creating a Square with a non-integer size raises a TypeError."""
+        with self.assertRaises(TypeError):
+            s = Square(1, "2")
+
     def test_numObj(self):
         """check number of instances created"""
         Base._Base__nb_objects = 0
