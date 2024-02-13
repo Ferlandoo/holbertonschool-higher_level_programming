@@ -67,20 +67,9 @@ class TestRectangle(unittest.TestCase):
         r4 = Rectangle(5, 5)
         self.assertEqual(r4.id, 2)
 
-    def save_to_file(self):
-        """check save_to_file"""
+    def test_save_to_file_empty(self):
+        """check save_to_file with empty list"""
         Base._Base__nb_objects = 0
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
-        a_dict = [r1.to_dictionary(), r2.to_dictionary()]
-        Rectangle.save_to_file([r1, r2])
-        with open("Rectangle.json", "r") as file:
-            list_dict = json.loads(file.read())
-        self.assertTrue(a_dict == list_dict)
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json", "r") as file:
-            list_dict = json.loads(file.read())
-        self.assertTrue(list_dict == [])
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
             list_dict = json.loads(file.read())
