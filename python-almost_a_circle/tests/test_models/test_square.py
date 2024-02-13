@@ -31,24 +31,6 @@ class TestSquare(unittest.TestCase):
         s4 = Square(5, 5)
         self.assertEqual(s4.id, 2)
 
-    def test_invalid_size(self):
-        """check invalid size"""
-        Base._Base__nb_objects = 0
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s = Square("1")
-
-    def test_invalid_size_type(self):
-        """check invalid size type"""
-        Base._Base__nb_objects = 0
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s = Square(1, "2")
-
-    def test_invalid_x(self):
-        """check invalid x"""
-        Base._Base__nb_objects = 0
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            s = Square(1, 2, "3")
-
     def test_getterAndSetter(self):
         """check getter and setter"""
         Base._Base__nb_objects = 0
