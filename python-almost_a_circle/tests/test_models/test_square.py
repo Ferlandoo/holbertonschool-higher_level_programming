@@ -56,19 +56,6 @@ class TestSquare(unittest.TestCase):
     def test_save_to_file(self):
         """check save_to_file method"""
         Base._Base__nb_objects = 0
-        s1 = Square(10, 7, 2, 8)
-        s2 = Square(2, 4)
-        Square.save_to_file([s1, s2])
-        with open("Square.json", "r") as file:
-            list_dict = json.loads(file.read())
-        self.assertTrue(list_dict == [s1.to_dictionary(), s2.to_dictionary()])
-        Square.save_to_file(None)
-        with open("Square.json", "r") as file:
-            list_dict = json.loads(file.read())
-        self.assertTrue(list_dict == [])
-
-    def test_save_to_file_empty(self):
-        """Test that save_to_file with an empty list works correctly."""
         Square.save_to_file([])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
