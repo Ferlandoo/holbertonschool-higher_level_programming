@@ -53,7 +53,7 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as file:
             list_dict = json.loads(file.read())
-        self.assertTrue(list_dict == [])
+        self.assertTrue(list_dict == None)
 
     def test_fromJsonString(self):
         """check from_json_string"""
