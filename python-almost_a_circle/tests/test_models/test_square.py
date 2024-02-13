@@ -107,6 +107,11 @@ class TestSquare(unittest.TestCase):
             list_dict = json.loads(file.read())
         self.assertTrue(list_input == list_dict, "Failed to save list of Square objects")
 
+    def test_save_to_file_none(self):
+        """Test that save_to_file with None as argument raises a TypeError."""
+        with self.assertRaises(TypeError):
+            Square.save_to_file(None)
+
     def test_display(self):
         """check display"""
         Base._Base__nb_objects = 0
