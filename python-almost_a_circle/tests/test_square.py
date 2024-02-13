@@ -1,5 +1,5 @@
 import unittest
-from square import Square
+from models.square import Square
 
 
 class TestSquare(unittest.TestCase):
