@@ -59,6 +59,16 @@ class TestSquare(unittest.TestCase):
         Square.save_to_file([])
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+        s1 = Square(5)
+        s2 = Square(2, 2)
+        Square.save_to_file([s1, s2])
+        list_input = [s1.to_dictionary(), s2.to_dictionary()]
+        with open("Square.json", "r") as file:
+            list_dict = json.loads(file.read())
+        self.assertTrue(list_input == list_dict)
 
     def test_errors(self):
         """check errors"""
