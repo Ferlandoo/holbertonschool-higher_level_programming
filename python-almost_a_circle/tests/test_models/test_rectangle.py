@@ -22,6 +22,12 @@ class TestRectangle(unittest.TestCase):
         r2 = Rectangle(2, 10)
         self.assertIsInstance(r2, Rectangle)
 
+    def test_invalid_width(self):
+        """check invalid width"""
+        Base._Base__nb_objects = 0
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("1", 2)
+
     def test_numObj(self):
         """check number of objects"""
         Base._Base__nb_objects = 0
