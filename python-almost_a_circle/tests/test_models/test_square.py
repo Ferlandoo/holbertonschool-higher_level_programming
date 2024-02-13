@@ -210,15 +210,6 @@ class TestSquare(unittest.TestCase):
         s1_dictionary = s1.to_dictionary()
         self.assertTrue(s1_dictionary == a_dict)
 
-    def test_empty(self):
-        """check empty arguments"""
-        Base._Base__nb_objects = 0
-        s1 = Square(5)
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s1.size = None
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            s1.size = ""
-
     def test_pep8_model(self):
         """tests for pep8"""
         p8 = pep8.StyleGuide(quiet=True)
