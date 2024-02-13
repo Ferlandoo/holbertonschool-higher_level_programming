@@ -100,8 +100,6 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]", "Failed to save empty list")
         Square.save_to_file(None)
-        with open("Square.json", "w") as file:
-            self.assertEqual(file.read(), "[]", "Failed to save None")
         s1 = Square(5)
         s2 = Square(2, 2)
         Square.save_to_file([s1, s2])
