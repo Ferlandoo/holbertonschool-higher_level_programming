@@ -23,12 +23,6 @@ class TestSquare(unittest.TestCase):
         s2 = Square(5)
         self.assertIsInstance(s2, Square)
         self.assertTrue(issubclass(type(s2), Rectangle))
-        self.assertEqual(s2.id, "1")
-        self.assertEqual(s2.size, 5)
-        self.assertEqual(s2.x, 0)
-        self.assertEqual(s2.y, 0)
-        self.assertEqual(s2.width, 5)
-        self.assertEqual(s2.height, 5)
 
     def test_numObj(self):
         """check number of instances created"""
@@ -36,6 +30,17 @@ class TestSquare(unittest.TestCase):
         s3 = Square(2, 2)
         s4 = Square(5, 5)
         self.assertEqual(s4.id, 2)
+        self.assertEqual(s3.id, 1)
+        self.assertEqual(s4.size, 5)
+        self.assertEqual(s3.size, 2)
+        self.assertEqual(s4.x, 5)
+        self.assertEqual(s3.x, 2)
+        self.assertEqual(s4.y, 0)
+        self.assertEqual(s3.y, 0)
+        self.assertEqual(s4.width, 5)
+        self.assertEqual(s3.width, 2)
+        self.assertEqual(s4.height, 5)
+        self.assertEqual(s3.height, 2)
 
     def test_getterAndSetter(self):
         """check getter and setter"""
