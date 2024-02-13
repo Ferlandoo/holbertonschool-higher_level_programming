@@ -34,6 +34,11 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s = Square(1, "2")
 
+    def test_save_to_file_none(self):
+        """Test that save_to_file with None as argument raises a TypeError."""
+        with self.assertRaises(TypeError):
+            Square.save_to_file(None)
+
     def test_numObj(self):
         """check number of instances created"""
         Base._Base__nb_objects = 0
