@@ -22,14 +22,17 @@ class TestSquare(unittest.TestCase):
         Base._Base__nb_objects = 0
         s2 = Square(5)
         self.assertIsInstance(s2, Square)
-        self.assertTrue(issubclass(type(s2), Rectangle))
+        self.assertIsInstance(s2, Rectangle)
 
     def test_numObj(self):
         """check number of instances created"""
         Base._Base__nb_objects = 0
         s3 = Square(2, 2)
-        s4 = Square(5, 5)
+        self.assertEqual(s3.id, 1)
+        s4 = Square(3, 1, -3)
         self.assertEqual(s4.id, 2)
+        s5 = Square(-1)
+        self.assertEqual(s5.id, 3)
 
     def test_getterAndSetter(self):
         """check getter and setter"""
