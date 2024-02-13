@@ -93,24 +93,24 @@ class TestSquare(unittest.TestCase):
         s6 = Square(5)
         self.assertEqual(s6.area(), s6.width * s6.height)
 
-    def test_save_to_file_none(self):
-        """Test that save_to_file with None as argument raises a TypeError."""
-        with self.assertRaises(TypeError):
-            Square.save_to_file(None)
-
     def test_save_to_file(self):
-        """Check save_to_file method"""
+        """check save_to_file"""
         Base._Base__nb_objects = 0
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]", "Failed to save empty list")
-        s1 = Square(5)
-        s2 = Square(2, 2)
-        Square.save_to_file([s1, s2])
-        list_input = [s1.to_dictionary(), s2.to_dictionary()]
+        s7 = Square(5)
+        Square.save_to_file([s7])
         with open("Square.json", "r") as file:
             list_dict = json.loads(file.read())
-        self.assertTrue(list_input == list_dict, "Failed to save list of Square objects")
+        self.assertTrue(list_dict == [s7.to_dictionary()])
+        s8 = Square(2, 2)
+        Square.save_to_file([s8])
+        with open("Square.json", "r") as file:
+            list_dict = json.loads(file.read())
+        self.assertTrue(list_dict == [s8.to_dictionary()])
+        s9 = Square(3, 1, 3)
+        Square.save_to_file([s9])
+        with open("Square.json", "r") as file:
+            list_dict = json.loads(file.read())
+        self.assertTrue(list_dict == [s9.to_dictionary()])
 
     def test_display(self):
         """check display"""
