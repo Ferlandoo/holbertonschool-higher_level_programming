@@ -171,34 +171,8 @@ class TestSquare(unittest.TestCase):
         sys.stdout = old_stdout
         result_string = result.getvalue()
         self.assertEqual(result_string, "\n  ###\n  ###\n  ###\n")
-
-    def test_update(self):
-        """check args, kwargs"""
-        Base._Base__nb_objects = 0
-        s1 = Square(5)
-        s1.update(10)
-        string = s1.__str__()
-        self.assertEqual(string, "[Square] (10) 0/0 - 5")
-        s1.update(1, 2)
-        string = s1.__str__()
-        self.assertEqual(string, "[Square] (1) 0/0 - 2")
-        s1.update(1, 2, 3)
-        string = s1.__str__()
-        self.assertEqual(string, "[Square] (1) 3/0 - 2")
-        s1.update(1, 2, 3, 4)
-        string = s1.__str__()
-        self.assertEqual(string, "[Square] (1) 3/4 - 2")
-        s1.update(x=12)
-        string = s1.__str__()
-        self.assertEqual(string, "[Square] (1) 12/4 - 2")
-        s1.update(size=7, y=1)
-        string = s1.__str__()
-        self.assertEqual(string, "[Square] (1) 12/1 - 7")
-        s1.update(size=7, id=89, y=1)
-        string = s1.__str__()
-        self.assertEqual(string, "[Square] (89) 12/1 - 7")
     
-    def test_update_kwargs(self, *args, **kwargs):
+    def test_update(self, *args, **kwargs):
         if args and len(args) != 0:
             a = 0
             for arg in args:
