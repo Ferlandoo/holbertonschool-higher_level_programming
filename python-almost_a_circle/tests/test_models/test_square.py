@@ -31,11 +31,22 @@ class TestSquare(unittest.TestCase):
         s4 = Square(5, 5)
         self.assertEqual(s4.id, 2)
 
-    def test_negative_size(self):
-        """check negative size"""
+    def test_errors(self):
+        """check errors"""
         Base._Base__nb_objects = 0
+        s = Square(5)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            s.size = "10"
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            Square(-10)
+            s.size = -10
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            s.x = "1"
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            s.x = -10
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            s.y = "10"
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Square(10, 3, -1)
 
     def test_zero_size(self):
         """check zero size"""
