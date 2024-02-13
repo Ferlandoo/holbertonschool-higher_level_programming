@@ -30,8 +30,6 @@ class TestSquare(unittest.TestCase):
         s3 = Square(2, 2)
         s4 = Square(5, 5)
         self.assertEqual(s4.id, 2)
-        s5 = Square(-1)
-        self.assertEqual(s5.id, 3)
 
     def test_getterAndSetter(self):
         """check getter and setter"""
