@@ -67,9 +67,12 @@ class TestSquare(unittest.TestCase):
             list_dict = json.loads(file.read())
         self.assertTrue(list_dict == [])
         Square.save_to_file([])
+
+    def test_save_to_file_empty(self):
+        """Test that save_to_file with an empty list works correctly."""
+        Square.save_to_file([])
         with open("Square.json", "r") as file:
-            list_dict = json.loads(file.read())
-        self.assertTrue(list_dict == [])
+            self.assertEqual(file.read(), "[]")
 
     def test_errors(self):
         """check errors"""
@@ -174,18 +177,6 @@ class TestSquare(unittest.TestCase):
         s1.update(size=7, id=89, y=1)
         string = s1.__str__()
         self.assertEqual(string, "[Square] (89) 12/1 - 7")
-
-    def negative_test(self):
-        """check for negative numbers"""
-        Base._Base__nb_objects = 0
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            s1 = Square(-5)
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            s2 = Square(0)
-        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
-            s3 = Square(5, -1)
-        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-            s4 = Square(5, 1, -1)
 
     def test_dictionary(self):
         """check dictionary conversion"""
