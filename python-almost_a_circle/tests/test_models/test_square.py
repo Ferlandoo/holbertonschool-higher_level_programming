@@ -94,29 +94,18 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s6.area(), s6.width * s6.height)
 
     def test_save_to_file(self):
-        """check save_to_file"""
-        Base._Base__nb_objects = 0
-        s7 = Square(5)
-        Square.save_to_file([s7])
-        with open("Square.json", "r") as file:
-            list_dict = json.loads(file.read())
-        self.assertTrue(list_dict == [s7.to_dictionary()])
-        
-    def test_save_to_file_empty(self):
-        """check save_to_file with empty list"""
-        Base._Base__nb_objects = 0
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            list_dict = json.loads(file.read())
-        self.assertTrue(list_dict == [])
-
-    def test_save_to_file_None(self):
-        """check save_to_file with None"""
+        """Check save_to_file method"""
         Base._Base__nb_objects = 0
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]", "Failed to save empty list")
+        s1 = Square(5)
+        s2 = Square(2, 2)
+        Square.save_to_file([s1, s2])
+        list_input = [s1.to_dictionary(), s2.to_dictionary()]
+        with open("Square.json", "r") as file:
             list_dict = json.loads(file.read())
-        self.assertTrue(list_dict == [])
+        self.assertTrue(list_input == list_dict, "Failed to save list of Square objects")
 
     def test_display(self):
         """check display"""
