@@ -29,6 +29,14 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(TypeError):
             s = Square(1, 2, "3")
 
+    def test_save_file_none(self):
+        """check save_to_file with None"""
+        Base._Base__nb_objects = 0
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            list_dict = json.loads(file.read())
+        self.assertTrue(list_dict == [])
+
     def test_invalid_size_type(self):
         """Test that creating a Square with a non-integer size raises a TypeError."""
         with self.assertRaises(TypeError):
