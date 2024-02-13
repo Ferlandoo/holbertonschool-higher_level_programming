@@ -61,12 +61,6 @@ class TestSquare(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square("10")
 
-    def test_two_strings(self):
-        """check two strings"""
-        Base._Base__nb_objects = 0
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(2, "3")
-
     def test_getterAndSetter(self):
         """check getter and setter"""
         Base._Base__nb_objects = 0
@@ -166,6 +160,14 @@ class TestSquare(unittest.TestCase):
         sys.stdout = old_stdout
         result_string = result.getvalue()
         self.assertEqual(result_string, "\n  ###\n  ###\n  ###\n")
+
+    def test_dictionary(self):
+        """check dictionary conversion"""
+        Base._Base__nb_objects = 0
+        s1 = Square(10, 2, 1, 1)
+        a_dict = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
+        s1_dictionary = s1.to_dictionary()
+        self.assertTrue(s1_dictionary == a_dict)
 
     def test_pep8_model(self):
         """tests for pep8"""
