@@ -69,7 +69,7 @@ class TestSquare(unittest.TestCase):
         """check one string"""
         Base._Base__nb_objects = 0
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square("1", "2", "3", "4")
+            Square("1")
 
     def test_getterAndSetter(self):
         """check getter and setter"""
