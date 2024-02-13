@@ -29,7 +29,7 @@ class TestSquare(unittest.TestCase):
         Base._Base__nb_objects = 0
         s3 = Square(2, 2)
         s4 = Square(5, 5)
-        self.assertEqual(s4.id, 2)
+        self.assertEqual(s4.id, "2")
         self.assertEqual(s3.id, 1)
         self.assertEqual(s4.size, 5)
         self.assertEqual(s3.size, 2)
