@@ -47,6 +47,14 @@ class TestBase(unittest.TestCase):
             list_dict = json.loads(file.read())  # list dict
         self.assertTrue(a_dict == list_dict)
 
+    def test_saveToFileNone(self):
+        """check save_to_file with None"""
+        Base._Base__nb_objects = 0
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            list_dict = json.loads(file.read())
+        self.assertTrue(list_dict == [])
+
     def test_fromJsonString(self):
         """check from_json_string"""
         Base._Base__nb_objects = 0
