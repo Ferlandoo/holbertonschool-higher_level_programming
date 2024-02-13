@@ -30,6 +30,14 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "height must be > 0"):
             Rectangle(1, 0)
 
+    def test_save_file_none(self):
+        """check save_to_file with None"""
+        Base._Base__nb_objects = 0
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            list_dict = json.loads(file.read())
+        self.assertTrue(list_dict == [])
+
     def test_invalid_width(self):
         """check invalid width"""
         Base._Base__nb_objects = 0
