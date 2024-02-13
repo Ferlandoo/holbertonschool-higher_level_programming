@@ -174,6 +174,15 @@ class TestSquare(unittest.TestCase):
         s1.update(size=7, id=89, y=1)
         string = s1.__str__()
         self.assertEqual(string, "[Square] (89) 12/1 - 7")
+        s1.update(-1)
+        string = s1.__str__()
+        self.assertEqual(string, "[Square] (-1) 12/1 - 7")
+        s1.update(1, -2)
+        string = s1.__str__()
+        self.assertEqual(string, "[Square] (1) 12/1 - -2")
+        s1.update(0)
+        string = s1.__str__()
+        self.assertEqual(string, "[Square] (0) 12/1 - -2")
 
     def test_dictionary(self):
         """check dictionary conversion"""
