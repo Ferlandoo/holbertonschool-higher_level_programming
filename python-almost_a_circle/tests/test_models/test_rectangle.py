@@ -28,6 +28,49 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Rectangle("1", 2)
 
+    def test_invalid_height(self):
+        """check invalid height"""
+        Base._Base__nb_objects = 0
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(1, "2")
+
+    def test_invalid_x(self):
+        """check invalid x"""
+        Base._Base__nb_objects = 0
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 2, "3")
+
+    def test_invalid_y(self):
+        """check invalid y"""
+        Base._Base__nb_objects = 0
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(1, 2, 3, "4")
+
+    def test_negative_height(self):
+        """check negative height"""
+        Base._Base__nb_objects = 0
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            Rectangle(1, -2)
+
+    def test_zero_width(self):
+        """check zero width"""
+        Base._Base__nb_objects = 0
+        r7 = Rectangle(0, 2)
+        self.assertEqual(r7.width, 0)
+        self.assertEqual(r7.height, 2)
+        self.assertEqual(r7.x, 0)
+        self.assertEqual(r7.y, 0)
+
+def test_zero_height(self):
+    """check zero height"""
+    Base._Base__nb_objects = 0
+    r8 = Rectangle(1, 0)
+    self.assertEqual(r8.width, 1)
+    self.assertEqual(r8.height, 0)
+    self.assertEqual(r8.x, 0)
+    self.assertEqual(r8.y, 0)
+    
+
     def test_numObj(self):
         """check number of objects"""
         Base._Base__nb_objects = 0
