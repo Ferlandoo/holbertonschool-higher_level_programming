@@ -36,10 +36,18 @@ class TestSquare(unittest.TestCase):
         Base._Base__nb_objects = 0
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(-10)
+
+    def test_zero_size(self):
+        """check zero size"""
+        Base._Base__nb_objects = 0
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(0)
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            Square(1, -10)  
+
+    def test_negative_x(self):
+        """check negative x"""
+        Base._Base__nb_objects = 0
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Square(10, -3)
 
     def test_getterAndSetter(self):
         """check getter and setter"""
