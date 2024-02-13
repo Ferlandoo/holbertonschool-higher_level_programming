@@ -24,7 +24,7 @@ class TestSquare(unittest.TestCase):
         self.assertIsInstance(s2, Square)
         self.assertTrue(issubclass(type(s2), Rectangle))
 
-    def test_invalid_height(self):
+    def test_invalid_size(self):
         """check invalid size"""
         Base._Base__nb_objects = 0
         with self.assertRaisesRegex(TypeError, "size must be an integer"):
