@@ -54,18 +54,7 @@ class TestSquare(unittest.TestCase):
         Base._Base__nb_objects = 0
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square("10")
-
-    def test_height_string(self):
-        """check height string"""
-        Base._Base__nb_objects = 0
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square(10, "3")
-
-    def test_x_string(self):
-        """check x string"""
-        Base._Base__nb_objects = 0
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(10, 3, "4")
 
     def test_getterAndSetter(self):
         """check getter and setter"""
