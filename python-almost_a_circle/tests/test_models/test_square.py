@@ -66,7 +66,6 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", "r") as file:
             list_dict = json.loads(file.read())
         self.assertTrue(list_dict == [])
-        Square.save_to_file([])
 
     def test_save_to_file_empty(self):
         """Test that save_to_file with an empty list works correctly."""
