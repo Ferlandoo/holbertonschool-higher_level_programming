@@ -107,6 +107,14 @@ class TestSquare(unittest.TestCase):
             list_dict = json.loads(file.read())
         self.assertTrue(list_input == list_dict, "Failed to save list of Square objects")
 
+    def test_save_to_file_None(self):
+        """check save_to_file with None"""
+        Base._Base__nb_objects = 0
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            list_dict = json.loads(file.read())
+        self.assertTrue(list_dict == [])
+
     def test_display(self):
         """check display"""
         Base._Base__nb_objects = 0
