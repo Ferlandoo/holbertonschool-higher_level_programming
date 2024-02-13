@@ -53,6 +53,22 @@ class TestSquare(unittest.TestCase):
         s6 = Square(5)
         self.assertEqual(s6.area(), s6.width * s6.height)
 
+    def test_save_to_file(self):
+        """check save_to_file method"""
+        Base._Base__nb_objects = 0
+        s = Square(5)
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def test_save_to_file_None(self):
+        """check save_to_file method with None"""
+        Base._Base__nb_objects = 0
+        s = Square(5)
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
     def test_errors(self):
         """check errors"""
         Base._Base__nb_objects = 0
