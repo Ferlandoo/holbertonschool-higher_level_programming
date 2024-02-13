@@ -61,16 +61,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r7.x, 0)
         self.assertEqual(r7.y, 0)
 
-def test_zero_height(self):
-    """check zero height"""
-    Base._Base__nb_objects = 0
-    r8 = Rectangle(1, 0)
-    self.assertEqual(r8.width, 1)
-    self.assertEqual(r8.height, 0)
-    self.assertEqual(r8.x, 0)
-    self.assertEqual(r8.y, 0)
+    def test_zero_height(self):
+        """check zero height"""
+        Base._Base__nb_objects = 0
+        r8 = Rectangle(1, 0)
+        self.assertEqual(r8.width, 1)
+        self.assertEqual(r8.height, 0)
+        self.assertEqual(r8.x, 0)
+        self.assertEqual(r8.y, 0)
     
-
     def test_numObj(self):
         """check number of objects"""
         Base._Base__nb_objects = 0
