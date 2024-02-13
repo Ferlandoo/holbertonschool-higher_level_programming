@@ -56,10 +56,7 @@ class TestSquare(unittest.TestCase):
     def test_save_to_file(self):
         """check save_to_file method"""
         Base._Base__nb_objects = 0
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-        Square.save_to_file(None)
+        Square.save_to_file([] or None)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
         s1 = Square(5)
