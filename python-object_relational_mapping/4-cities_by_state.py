@@ -13,7 +13,11 @@ if __name__ == "__main__":
         db=argv[3],
         charset="utf8")
     cur = db.cursor()
-    cur.execute("SELECT * FROM cities ORDER BY id")
+    cur.execute(
+        "SELECT cities.id, cities.name, states.name "
+        "FROM cities "
+        "JOIN states ON states.id = cities.state_id "
+        "ORDER BY cities.id")
     rows = cur.fetchall()
     for row in rows:
         print(row)
