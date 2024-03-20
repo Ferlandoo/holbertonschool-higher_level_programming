@@ -22,7 +22,7 @@ if __name__ == "__main__":
     cur.execute(query, (argv[4], ))
     rows = cur.fetchall()
     for idx in range(len(rows)):
-        if idx == len(rows):
+        if idx != len(rows) - 1:
             print(rows[idx], end=", ")
         else:
             print(rows[idx], end="")
