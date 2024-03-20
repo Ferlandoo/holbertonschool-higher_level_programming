@@ -21,11 +21,6 @@ if __name__ == "__main__":
         "ORDER BY cities.id")
     cur.execute(query, (argv[4], ))
     rows = cur.fetchall()
-    for idx in range(len(rows)):
-        if idx != len(rows) - 1:
-            print(rows[idx], end=", ")
-        else:
-            print(rows[idx], end="")
-    print()
+    print(", ".join([row[0] for row in rows]))
     cur.close()
     db.close()
