@@ -21,7 +21,10 @@ if __name__ == "__main__":
         "ORDER BY cities.id")
     cur.execute(query, (argv[4], ))
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    for row in range(len(rows)):
+        if row != len(rows) - 1:
+            print(rows[row], end=", ")
+        else:
+            print(rows[row])
     cur.close()
     db.close()
