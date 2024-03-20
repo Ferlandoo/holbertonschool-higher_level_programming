@@ -6,8 +6,6 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    """Takes in an argument and displays all values in the states
-    table of hbtn_0e_0_usa where name matches the argument."""
     u = argv[1]
     p = argv[2]
     d = argv[3]
