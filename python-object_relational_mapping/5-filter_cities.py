@@ -26,5 +26,6 @@ if __name__ == "__main__":
             print(rows[idx], end=", ")
         else:
             print(rows[idx], end="")
+    print()
     cur.close()
     db.close()
