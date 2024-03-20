@@ -14,10 +14,10 @@ if __name__ == "__main__":
         charset="utf8")
     cur = db.cursor()
     cur.execute((
-        "SELECT cities.name"
-        "FROM cities"
-        "JOIN states ON states.id = cities.state_id"
-        "WHERE states.name = %s"
+        "SELECT cities.name "
+        "FROM cities "
+        "JOIN states ON states.id = cities.state_id "
+        "WHERE states.name = %s "
         "ORDER BY cities.id"), argv[4])
     rows = cur.fetchall()
     for row in rows:
