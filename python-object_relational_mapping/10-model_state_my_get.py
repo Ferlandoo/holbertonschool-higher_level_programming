@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Prints the State object with the name passed as argument."""
+"""Prints the State object with the name passed as argument"""
 
 from sys import argv
 from sqlalchemy import create_engine
