@@ -16,5 +16,6 @@ if __name__ == "__main__":
     if query is None:
         print("Nothing")
     else:
-        print(f"{query.id}: {query.name}")
+        for element in query:
+            print(f"{query.id}: {query.name}")
     session.close()
