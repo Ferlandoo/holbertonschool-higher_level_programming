@@ -4,6 +4,7 @@
 from sys import argv
 from sqlalchemy import create_engine
 from model_city import Base, City
+from model_state import State
 from sqlalchemy.orm import Session
 
 if __name__ == "__main__":
