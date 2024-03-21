@@ -13,9 +13,9 @@ if __name__ == "__main__":
     )
     Base.metadata.create_all(engine)
     session = Session(engine)
-    query = session.query(City).order_by(City.id).all()
+    query = session.query(City, State).filter(City.state_id == State.id).all()
     if query is not None:
-        for element in query:
-            print(f"{element.State.name}: ({element.id}) {element.name}")
+        for city, state in query:
+            print(f"{state.name}: ({city.id}) {city.name}")
     session.commit()
     session.close()
