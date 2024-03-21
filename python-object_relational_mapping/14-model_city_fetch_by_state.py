@@ -16,6 +16,6 @@ if __name__ == "__main__":
     query = session.query(City).order_by(City.id).all()
     if query is not None:
         for element in query:
-            print(f"{element.state.name}: ({element.id}) {element.name}")
+            print(f"{element.State.name}: ({element.id}) {element.name}")
     session.commit()
     session.close()
