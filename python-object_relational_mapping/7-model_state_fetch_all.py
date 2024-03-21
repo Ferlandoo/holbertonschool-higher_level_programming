@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from model_state import Base, State
 from sqlalchemy.orm import Session
 
-
+"""This script should take 3 arguments: mysql username, mysql password and database name."""
 engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(argv[0], argv[1], argv[2]))
 Base.metadata.create_all(engine)
 session = Session(engine)
